@@ -8,14 +8,39 @@ function addTask() {
     } else {
         let li = document.createElement('li');
         li.innerHTML = taskText;
-        listContainer.appendChild(li);
+        /*
         let span = document.createElement("span");
         span.innerHTML = "\u00d7";
-        li.appendChild(span);
-        taskInput.value = ""; // Clear input field after adding task
+*/
+
+
+        // Create a span for the edit button
+        let editSpan = document.createElement("span");
+        editSpan.innerHTML = "&#9998;";
+        editSpan.className = "edit";
+        li.appendChild(editSpan);
+
+        // Create a span for the delete button
+        let deleteSpan = document.createElement("span");
+        deleteSpan.innerHTML = "\u00d7";
+        deleteSpan.className = "delete";
+        li.appendChild(deleteSpan);
+
+        //li.appendChild(span);
+        listContainer.appendChild(li);
+
+        taskInput.value = ""; // Clear input 
         saveData();
     }
 }
+//adding task after i press  Enter key :)
+function handleKeyPress(event) {
+    if (event.key === 'Enter') {
+        addTask();
+    }
+}
+
+taskInput.addEventListener('keypress', handleKeyPress);
 
 listContainer.addEventListener("click", function(e) {
     if (e.target.tagName === "LI") {

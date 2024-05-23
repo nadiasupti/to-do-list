@@ -6,7 +6,10 @@
     box-sizing: border-box;
 }
 
-.container {
+ .container {
+    display: flex;
+    justify-content: center; /* Center the child horizontally */
+    align-items: center; /* Center the child vertically */
     width: 100%;
     min-height: 100vh;
     background: linear-gradient(135deg, #153677, #4e085f);
@@ -17,7 +20,6 @@
     width: 100%;
     max-width: 540px;
     background: #fff;
-    margin: 100px auto 20px;
     padding: 40px;
     border-radius: 40px 30px 70px;
     border-radius: 10px;
@@ -27,6 +29,7 @@
     color: #002765;
     display: flex;
     align-items: center;
+    justify-content: center;
     margin-bottom: 20px;
 }
 
@@ -70,6 +73,7 @@ ul li {
     user-select: none;
     cursor: pointer;
     position: relative;
+    margin-bottom: 10px; /* Adjust margin for spacing between tasks */
 }
 
 ul li::before {
@@ -94,14 +98,34 @@ ul li.checked::before {
     background-image: url(To-Do-Img/images/checked.png);
 }
 
+ul li .delete {
+    position: absolute; 
+    top: 50%; 
+    right: 30px; /* Adjust position of the delete button */
+    transform: translateY(-50%);
+    font-size: 18px;
+    color: #999;
+    cursor: pointer;
+}
 
+ul li .edit {
+    position: absolute; 
+    top: 50%; 
+    right: 8px; /* Position the edit button */
+    transform: translateY(-50%);
+    font-size: 18px;
+    color: #999;
+    cursor: pointer;
+}
 
-
-/*
 ul li span {
-    position: absolute;
-    right: 0;
-    top: 5px;
+    position: absolute; 
+    top: 50%; 
+    left: 390px; /* the cross button to the left  */
+    transform: translateY(-50%); /* Center */
+    font-size: 18px;
+    color: #6a6767;
+    cursor: pointer;
     width: 40px;
     height: 40px;
     font-size: 22px;
@@ -110,8 +134,7 @@ ul li span {
     text-align: center;
     border-radius: 50%;
 }
-
 ul li span:hover {
     background: #edeef0;
 }
-*/
+
