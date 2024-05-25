@@ -8,10 +8,7 @@ function addTask() {
     } else {
         let li = document.createElement('li');
         li.innerHTML = taskText;
-        /*
-        let span = document.createElement("span");
-        span.innerHTML = "\u00d7";
-*/
+        
 
 
         // Create a span for the edit button
